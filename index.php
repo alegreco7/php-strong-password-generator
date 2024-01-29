@@ -1,7 +1,10 @@
-<?php 
+<?php
+    // Includi il file delle funzioni che contiene la funzione pswGen
     include __DIR__.'/partials/function.php';
-    if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '' ) {
 
+    // Verifica se il parametro 'psw_leng' è impostato nella query string e non è vuoto
+    if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '') {
+        // Questo blocco viene eseguito solo se il parametro 'psw_leng' è presente e non è vuoto
     }
 ?>
 
@@ -15,13 +18,17 @@
 </head>
 <body>
     <div class="m-4 ">
+        <!-- Form per inserire la lunghezza della password -->
         <form action="./index.php" method="get">
             <input type="text" name="psw_leng" id="pswLeng" placeholder="Lunghezza Password">
             <button type="submit">Genera</button>
         </form>
 
-        <?php if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '') { ?>            
-            <h4><?php echo $_GET['psw_leng'] >= 4 ? pswGen($_GET['psw_leng']) : "Inserisci un numero maggiore di 4"?></h4>
+        <?php 
+            // Verifica se il parametro 'psw_leng' è presente e non è vuoto
+            if (isset($_GET['psw_leng']) && $_GET['psw_leng'] != '') { ?>            
+                <!-- Visualizza la password generata solo se la lunghezza è maggiore o uguale a 4 -->
+                <h4><?php echo $_GET['psw_leng'] >= 4 ? pswGen($_GET['psw_leng']) : "Inserisci un numero maggiore di 4"?></h4>
         <?php }?>
     </div>
 </body>
